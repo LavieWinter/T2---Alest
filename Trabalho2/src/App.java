@@ -24,8 +24,10 @@ public class App {
                 }
             }
             if(sala1.roundsLeft() == 0){
+                //esse if pode ser substituído pela chamada de passTime()
                 Patient aux = sala1.remove();
             }
+            
         }
         wRoom.print();
     }
