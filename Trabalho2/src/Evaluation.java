@@ -15,6 +15,15 @@ public class Evaluation {
         this.patient = patient;
     }
 
+    /*public void passTime() {
+        if(roundsLeft == 0){
+            remove();
+        }
+        else{
+            roundsLeft--;
+        }
+    }*/
+
     public Patient remove() {
         this.working = false;
         return patient;
