@@ -18,6 +18,7 @@ public class App {
         //Rounds for loop
         int lostPatients = 0;
         for(int i = 0; i < rounds; i++){
+            //Patient Might Enter Emergency Room
             double chance = Math.random();
             if(chance >= 0.5){
                 if(!wRoom.enterRoom()){
@@ -27,15 +28,16 @@ public class App {
             }
             System.out.println("round: "+i+" tam: "+wRoom.size());
             
+            //Patient Might be Called for Evaluation
             for(int j = 0; j < evalRooms.size(); j++){
                 try {
-                    Evaluation aux = evalRooms.get(j);
-                    if(aux.isWorking() && (aux.roundsLeft() <= 0)){
-                        pQueue.add(aux.remove());
+                    Evaluation eval = evalRooms.get(j);
+                    if(eval.isWorking() && (eval.roundsLeft() <= 0)){
+                        pQueue.add(eval.remove());
                     }
-                    if(!aux.isWorking()){
-                        if(wRoom.size() != 0){ // IMPLEMENTAR METODO ISEMPTY() E BOTAR NO UML
-                            aux.insert(wRoom.leaveRoom());
+                    if(!eval.isWorking()){
+                        if(!wRoom.isEmpty()){
+                            eval.insert(wRoom.leaveRoom());
                             System.out.println("Paciente adicionado na triagem");
                         }
                     }
@@ -44,21 +46,37 @@ public class App {
                 }
             }
             
-            // if(wRoom.size() != 0){
-                // if(!sala1.isWorking()){
-                    // sala1.insert(wRoom.leaveRoom());
-                // }
-            // }
-            // if(sala1.roundsLeft() == 0){
-                // esse if pode ser substituído pela chamada de passTime()
-                // Patient aux = sala1.remove();
-            // }
+            //Patient Might See the Doctor
+            for(int j = 0; j < treatRooms.size(); j++){
+                try {
+                    Treatment treat = treatRooms.get(j);
+                    if(treat.isWorking() && (treat.roundsLeft() <= 0)){
+                        treat.endService();
+                    }
+                    if(!treat.isWorking()){
+                        if(!pQueue.isEmpty()){
+                            treat.seePatient(pQueue.remove());
+                            System.out.println("Paciente sendo atendido");
+                        }
+                    }
+                } catch (Exception e) {
+                    break;
+                }
+            }
 
             //Fix Patient's Wait Time
             wRoom.stayIn();
             for(int j = 0; j < evalRooms.size(); j++){
                 try {
                     evalRooms.get(j).passTime();
+                } catch (Exception e) {
+                    break;
+                }
+            }
+            pQueue.stayIn();
+            for(int j = 0; j < treatRooms.size(); j++){
+                try {
+                    treatRooms.get(j).passTime();
                 } catch (Exception e) {
                     break;
                 }

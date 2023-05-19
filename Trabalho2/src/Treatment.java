@@ -16,19 +16,18 @@ public class Treatment {
     }
 
     public void passTime() {
-        if(roundsLeft == 0){
-            endService();
-        }
-        else{
-            roundsLeft--;
-        }
+        roundsLeft--;
+    }
+
+    public int roundsLeft(){
+        return roundsLeft;
+    }
+    
+    public boolean isWorking(){
+        return working;
     }
 
     public void endService() {
         working = false;
-    }
-
-    public boolean isWorking(){
-        return working;
     }
 }

@@ -50,7 +50,23 @@ public class LinkedQueue<T> implements Queue<T>{
         return aux.obj;
     }
 
-    public void updateTime() {
+    @Override
+    public T get(int pos) {
+        if(pos == 0){
+            return head.obj;
+        }
+        if(pos == (size-1)){
+            return tail.obj;
+        }
+        Node<T> aux = head;
+        while(pos > 0){
+            aux = aux.next;
+            pos--;
+        }
+        return aux.obj;
+    }
+
+    public void updateTotalTime() {
         totalTime += size;
     }
 

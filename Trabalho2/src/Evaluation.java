@@ -1,7 +1,7 @@
 public class Evaluation {
-    private int roundsLeft;
-    private boolean working;
     private Patient patient;
+    private boolean working;
+    private int roundsLeft;
 
     public Evaluation() {
         this.roundsLeft = 0;
@@ -14,16 +14,16 @@ public class Evaluation {
         roundsLeft = (int)(Math.random()*2)+1;
         this.patient = patient;
     }
-
-    public void passTime() { //IMPLEMENTAR NO UML
-        roundsLeft--;
-    }
-
+    
     public Patient remove() {
         working = false;
         return patient;
     }
-
+    
+    public void passTime() {
+        roundsLeft--;
+    }
+    
     public int roundsLeft(){
         return roundsLeft;
     }

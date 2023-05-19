@@ -1,8 +1,8 @@
 public class WaitingRoom {
     private ArrayQueue<Patient> queue;
+    private int openedComplaints;
     private double passedBy;
     private double totalTime;
-    private int openedComplaints;
 
     public WaitingRoom() {
         this.queue = new ArrayQueue<>(50);
@@ -24,6 +24,11 @@ public class WaitingRoom {
 
     public void stayIn() {
         for(int i = 0; i < queue.size(); i++){
+            Patient aux = queue.get(i);
+            if(aux.getWaitTime() >= 10 && !aux.complained()){
+                aux.complain();
+                openedComplaints++;
+            }
             queue.get(i).waiting();
         }
         totalTime += queue.size();
@@ -52,6 +57,10 @@ public class WaitingRoom {
 
     public int size(){
         return queue.size();
+    }
+
+    public boolean isEmpty() {
+        return size() == 0;
     }
 
     public int openedComplaints() {
