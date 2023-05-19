@@ -11,7 +11,7 @@ public class Treatment {
 
     public void seePatient(Patient patient) {
         working = true;
-        roundsLeft = (int)(Math.random()*4)+2;
+        roundsLeft = (int)(Math.random()*4)+1;
         this.patient = patient;
     }
 
