@@ -31,7 +31,7 @@ public class PriorityQueue {
         else {
             red.enqueue(patient);
         }
-        System.out.println("Paciente adicionado na fila de prioridade");
+        // System.out.println("Paciente adicionado na fila de prioridade");
     } 
 
     public Patient remove() {

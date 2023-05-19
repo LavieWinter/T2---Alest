@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(100000);
+        emergencyRoom(500000);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -38,7 +38,7 @@ public class App {
                     if(!eval.isWorking()){
                         if(!wRoom.isEmpty()){
                             eval.insert(wRoom.leaveRoom());
-                            System.out.println("Paciente adicionado na triagem");
+                            // System.out.println("Paciente adicionado na triagem");
                         }
                     }
                 } catch (Exception e) {
@@ -56,7 +56,7 @@ public class App {
                     if(!treat.isWorking()){
                         if(!pQueue.isEmpty()){
                             treat.seePatient(pQueue.remove());
-                            System.out.println("Paciente sendo atendido");
+                            // System.out.println("Paciente sendo atendido");
                         }
                     }
                 } catch (Exception e) {
@@ -87,6 +87,7 @@ public class App {
             if(wRoomComplaints >= 10){
                 for(int j = 0; j < wRoomComplaints/10; j++){
                     evalRooms.add(new Evaluation());
+                    System.out.println("Adicionado eval no round: "+i);
                 }
                 wRoom.setOpenComplaints(wRoomComplaints%10);
             }
@@ -94,6 +95,7 @@ public class App {
             if(pQueueComplaints >= 10){
                 for(int j = 0; j < pQueueComplaints/10; j++){
                     treatRooms.add(new Treatment());
+                    System.out.println("Adicionado treatment no round: "+i);
                 }
                 pQueue.setOpenComplaints(pQueueComplaints%10);
             }
