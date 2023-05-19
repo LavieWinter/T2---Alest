@@ -16,13 +16,14 @@ public class ArrayQueue<T> implements Queue<T> {
         if(((end+1) % array.length) == start){
             throw new Exception("Queue Full");
         }
-        if(size != 0){
+        // if(size != 0){
+            // end = (end+1) % array.length;
+            // array[end] = obj;
+        // }
+        // else {
+            array[end] = obj;
             end = (end+1) % array.length;
-            array[end] = obj;
-        }
-        else {
-            array[end] = obj;
-        }
+        // }
         size++;
     }
 

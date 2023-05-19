@@ -12,6 +12,7 @@ public class PriorityQueue {
     }
 
     public void add(Patient patient) {
+        System.out.println("Paciente adicionado na fila de prioridade");
         //20% red
         //10% yellow
         //30% green

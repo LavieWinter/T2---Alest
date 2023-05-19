@@ -15,17 +15,12 @@ public class Evaluation {
         this.patient = patient;
     }
 
-    /*public void passTime() {
-        if(roundsLeft == 0){
-            remove();
-        }
-        else{
-            roundsLeft--;
-        }
-    }*/
+    public void passTime() { //IMPLEMENTAR NO UML
+        roundsLeft--;
+    }
 
     public Patient remove() {
-        this.working = false;
+        working = false;
         return patient;
     }
 
@@ -36,6 +31,4 @@ public class Evaluation {
     public boolean isWorking(){
         return working;
     }
-    // roundsLeft = (int)(Math.random()*3)+1;
-
 }

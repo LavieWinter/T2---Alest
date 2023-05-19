@@ -23,7 +23,7 @@ public class WaitingRoom {
     }
 
     public void stayIn() {
-        for(int i = 0; i <= queue.size(); i++){
+        for(int i = 0; i < queue.size(); i++){
             queue.get(i).waiting();
         }
         totalTime += queue.size();
@@ -41,7 +41,7 @@ public class WaitingRoom {
     }
 
     public void checkTime() {
-        for(int i = 0; i <= queue.size(); i++){
+        for(int i = 0; i < queue.size(); i++){
             Patient aux = queue.get(i);
             if(aux.getWaitTime() > 50 && !aux.complained()){
                 openedComplaints++;
