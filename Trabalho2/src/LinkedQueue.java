@@ -2,6 +2,8 @@ public class LinkedQueue<T> implements Queue<T>{
     private Node<T> head;
     private Node<T> tail;
     private int size;
+    private double passedBy;
+    private double totalTime;
 
     private class Node<T>{
         private T obj;
@@ -17,6 +19,8 @@ public class LinkedQueue<T> implements Queue<T>{
         this.head = null;
         this.tail = null;
         this.size = 0;
+        this.passedBy = 0;
+        this.totalTime = 0;
     }
 
     @Override
@@ -31,6 +35,7 @@ public class LinkedQueue<T> implements Queue<T>{
             tail = tail.next;
         }
         size++;
+        passedBy++;
     }
 
     @Override
@@ -45,13 +50,21 @@ public class LinkedQueue<T> implements Queue<T>{
         return aux.obj;
     }
 
+    public void updateTime() {
+        totalTime += size;
+    }
+
     @Override
     public int size() {
         return size;
     }
 
+    public double avgWaitTime() {
+        return totalTime/passedBy;
+    }
+
     @Override
     public boolean isEmpty() {
         return size == 0;
-    }  
+    }
 }

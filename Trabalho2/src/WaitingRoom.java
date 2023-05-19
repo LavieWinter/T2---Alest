@@ -1,15 +1,20 @@
 public class WaitingRoom {
     private ArrayQueue<Patient> queue;
+    private double passedBy;
+    private double totalTime;
     private int openedComplaints;
 
     public WaitingRoom() {
         this.queue = new ArrayQueue<>(50);
+        this.passedBy = 0;
+        this.totalTime = 0;
         this.openedComplaints = 0;
     }
 
     public boolean enterRoom() {
         try {
             queue.enqueue(new Patient());
+            passedBy++;
             return true;
         } catch (Exception e) {
             System.out.println("WaitingRoom.enterRoom(): " + e.getMessage());
@@ -21,6 +26,7 @@ public class WaitingRoom {
         for(int i = 0; i <= queue.size(); i++){
             queue.get(i).waiting();
         }
+        totalTime += queue.size();
     }
 
     public Patient leaveRoom() {
@@ -48,8 +54,12 @@ public class WaitingRoom {
         return queue.size();
     }
 
-    public void incEvaluation() {
-        openedComplaints -= 10;
+    public int openedComplaints() {
+        return openedComplaints;
+    }
+
+    public double avgWaitTime() {
+        return totalTime/passedBy;
     }
 
     public void print(){

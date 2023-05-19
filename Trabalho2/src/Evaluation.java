@@ -9,7 +9,7 @@ public class Evaluation {
         this.patient = null;
     }
 
-    public void insere(Patient patient) {
+    public void insert(Patient patient) {
         working = true;
         roundsLeft = (int)(Math.random()*2)+1;
         this.patient = patient;

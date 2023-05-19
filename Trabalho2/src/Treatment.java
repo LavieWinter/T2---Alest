@@ -28,7 +28,7 @@ public class Treatment {
         working = false;
     }
 
-    public boolean working(){
+    public boolean isWorking(){
         return working;
     }
 }
