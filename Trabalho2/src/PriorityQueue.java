@@ -76,7 +76,7 @@ public class PriorityQueue {
         if(!red.isEmpty()){
             for(int i = 0; i < red.size(); i++){
                 Patient aux = red.get(i);
-                if(aux.getWaitTime() >= 10 && !aux.complained()){
+                if(aux.getWaitTime() > 50 && !aux.complained()){
                     aux.complain();
                     openedComplaints++;
                 }
@@ -86,7 +86,7 @@ public class PriorityQueue {
         if(!yellow.isEmpty()){   
             for(int i = 0; i < yellow.size(); i++){
                 Patient aux = yellow.get(i);
-                if(aux.getWaitTime() >= 10 && !aux.complained()){
+                if(aux.getWaitTime() > 50 && !aux.complained()){
                     aux.complain();
                     openedComplaints++;
                 }
@@ -96,7 +96,7 @@ public class PriorityQueue {
         if(!green.isEmpty()){
             for(int i = 0; i < green.size(); i++){
                 Patient aux = green.get(i);
-                if(aux.getWaitTime() >= 10 && !aux.complained()){
+                if(aux.getWaitTime() > 50 && !aux.complained()){
                     aux.complain();
                     openedComplaints++;
                 }
@@ -106,7 +106,7 @@ public class PriorityQueue {
         if(!blue.isEmpty()){
             for(int i = 0; i < blue.size(); i++){
                 Patient aux = blue.get(i);
-                if(aux.getWaitTime() >= 10 && !aux.complained()){
+                if(aux.getWaitTime() > 50 && !aux.complained()){
                     aux.complain();
                     openedComplaints++;
                 }
@@ -117,6 +117,23 @@ public class PriorityQueue {
         yellow.updateTotalTime();
         green.updateTotalTime();
         blue.updateTotalTime();
+    }
+
+    public int openedComplaints() {
+        return openedComplaints;
+    }
+
+    public double[] internalWaitTimes() {
+        double[] allAvg = new double[4];
+        allAvg[0] = red.avgWaitTime();
+        allAvg[1] = yellow.avgWaitTime();
+        allAvg[2] = green.avgWaitTime();
+        allAvg[3] = blue.avgWaitTime();
+        return allAvg;
+    }
+
+    public void setOpenComplaints(int num) {
+        this.openedComplaints = num;
     }
 
     public boolean isEmpty() {

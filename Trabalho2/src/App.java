@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(500);
+        emergencyRoom(100000);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -81,6 +81,22 @@ public class App {
                     break;
                 }
             }
+
+            //Increase Working Personnel
+            int wRoomComplaints = wRoom.openedComplaints();
+            if(wRoomComplaints >= 10){
+                for(int j = 0; j < wRoomComplaints/10; j++){
+                    evalRooms.add(new Evaluation());
+                }
+                wRoom.setOpenComplaints(wRoomComplaints%10);
+            }
+            int pQueueComplaints = pQueue.openedComplaints();
+            if(pQueueComplaints >= 10){
+                for(int j = 0; j < pQueueComplaints/10; j++){
+                    treatRooms.add(new Treatment());
+                }
+                pQueue.setOpenComplaints(pQueueComplaints%10);
+            }
         }
         // wRoom.print();
 
@@ -88,11 +104,11 @@ public class App {
         System.out.println("Report (a):");
         System.out.println("\tPatients Lost due to Full Waiting Room: " + lostPatients);
         System.out.println("Report (b):");
-        System.out.println("\tAvg Wait Time in Waiting Room: " + wRoom.avgWaitTime());
-        System.out.println("\tAvg Wait Time in Red Queue: " + "TO COMPLETE");
-        System.out.println("\tAvg Wait Time in Yellow Queue: " + "TO COMPLETE");
-        System.out.println("\tAvg Wait Time in Green Queue: " + "TO COMPLETE");
-        System.out.println("\tAvg Wait Time in Blue Queue: " + "TO COMPLETE");
+        System.out.println("\tAvg Wait Time in Waiting Room: " + String.format("%.2f", wRoom.avgWaitTime()));
+        System.out.println("\tAvg Wait Time in Red Queue: " + String.format("%.2f", pQueue.internalWaitTimes()[0]));
+        System.out.println("\tAvg Wait Time in Yellow Queue: " + String.format("%.2f", pQueue.internalWaitTimes()[1]));
+        System.out.println("\tAvg Wait Time in Green Queue: " + String.format("%.2f", pQueue.internalWaitTimes()[2]));
+        System.out.println("\tAvg Wait Time in Blue Queue: " + String.format("%.2f", pQueue.internalWaitTimes()[3]));
         System.out.println("Report (c):");
         System.out.println("\tNumber of Personnel Working in Evaluation: " + evalRooms.size());
         System.out.println("\tNumber of Doctors Working in Treatment: " + treatRooms.size());

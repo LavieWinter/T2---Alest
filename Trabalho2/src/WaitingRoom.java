@@ -29,7 +29,7 @@ public class WaitingRoom {
                 aux.complain();
                 openedComplaints++;
             }
-            queue.get(i).waiting();
+            aux.waiting();
         }
         totalTime += queue.size();
     }
@@ -65,6 +65,10 @@ public class WaitingRoom {
 
     public int openedComplaints() {
         return openedComplaints;
+    }
+
+    public void setOpenComplaints(int num) {
+        this.openedComplaints = num;
     }
 
     public double avgWaitTime() {
