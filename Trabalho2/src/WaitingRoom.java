@@ -25,7 +25,7 @@ public class WaitingRoom {
     public void stayIn() {
         for(int i = 0; i < queue.size(); i++){
             Patient aux = queue.get(i);
-            if(aux.getWaitTime() >= 10 && !aux.complained()){
+            if(aux.getWaitTime() >= 50 && !aux.complained()){
                 aux.complain();
                 openedComplaints++;
             }
@@ -42,16 +42,6 @@ public class WaitingRoom {
         } catch (Exception e) {
             System.out.println("WaitingRoom.leaveRoom(): " + e.getMessage());
             return null;
-        }
-    }
-
-    public void checkTime() {
-        for(int i = 0; i < queue.size(); i++){
-            Patient aux = queue.get(i);
-            if(aux.getWaitTime() > 50 && !aux.complained()){
-                openedComplaints++;
-                aux.complain();
-            }
         }
     }
 
