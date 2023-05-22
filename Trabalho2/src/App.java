@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(500000);
+        emergencyRoom(100);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -20,7 +20,7 @@ public class App {
         for(int i = 0; i < rounds; i++){
             //Patient Might Enter Emergency Room
             double chance = Math.random();
-            if(chance >= 0.5){
+            if(chance >= 0.0){
                 if(!wRoom.enterRoom()){
                     lostPatients++;
                     System.out.println("lostPatients: "+lostPatients);
@@ -38,7 +38,7 @@ public class App {
                     if(!eval.isWorking()){
                         if(!wRoom.isEmpty()){
                             eval.insert(wRoom.leaveRoom());
-                            // System.out.println("Paciente adicionado na triagem");
+                            System.out.println("Paciente adicionado na triagem");
                         }
                     }
                 } catch (Exception e) {
@@ -56,7 +56,7 @@ public class App {
                     if(!treat.isWorking()){
                         if(!pQueue.isEmpty()){
                             treat.seePatient(pQueue.remove());
-                            // System.out.println("Paciente sendo atendido");
+                            System.out.println("Paciente sendo atendido");
                         }
                     }
                 } catch (Exception e) {
