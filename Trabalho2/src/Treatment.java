@@ -11,12 +11,14 @@ public class Treatment {
 
     public void seePatient(Patient patient) {
         working = true;
-        roundsLeft = (int)(Math.random()*4)+2;
+        // roundsLeft = (int)(Math.random()*4)+2;
+        roundsLeft = 5;
         this.patient = patient;
     }
 
     public void passTime() {
         roundsLeft--;
+        System.out.println("Treatment RoundsLeft: "+roundsLeft);
     }
 
     public int roundsLeft(){

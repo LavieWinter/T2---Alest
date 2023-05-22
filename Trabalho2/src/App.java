@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(100);
+        emergencyRoom(1000);
     }
 
     private static void emergencyRoom(int rounds) {

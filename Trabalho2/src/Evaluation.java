@@ -11,7 +11,8 @@ public class Evaluation {
 
     public void insert(Patient patient) {
         working = true;
-        roundsLeft = (int)(Math.random()*3)+1;
+        // roundsLeft = (int)(Math.random()*3)+1;
+        roundsLeft = 3;
         this.patient = patient;
     }
     
@@ -22,6 +23,7 @@ public class Evaluation {
     
     public void passTime() {
         roundsLeft--;
+        System.out.println("Eval RoundsLeft: "+roundsLeft);
     }
     
     public int roundsLeft(){
