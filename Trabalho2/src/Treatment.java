@@ -11,7 +11,7 @@ public class Treatment {
 
     public void seePatient(Patient patient) {
         working = true;
-        roundsLeft = (int)(Math.random()*4)+1;
+        roundsLeft = (int)(Math.random()*4)+2;
         this.patient = patient;
     }
 
@@ -20,6 +20,7 @@ public class Treatment {
     }
 
     public int roundsLeft(){
+        System.out.println("treat: "+roundsLeft);
         return roundsLeft;
     }
     
