@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(1000);
+        emergencyRoom(40000);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -20,7 +20,8 @@ public class App {
         for(int i = 0; i < rounds; i++){
             //Patient Might Enter Emergency Room
             double chance = Math.random();
-            if(chance >= 0.0){
+            System.out.println("chance: "+chance+" at round: "+i);
+            if(chance >= 0.5){
                 if(!wRoom.enterRoom()){
                     lostPatients++;
                     System.out.println("lostPatients: "+lostPatients);
