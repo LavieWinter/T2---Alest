@@ -25,7 +25,7 @@ public class WaitingRoom {
     public void stayIn() {
         for(int i = 0; i < queue.size(); i++){
             Patient aux = queue.get(i);
-            if(aux.getWaitTime() >= 50 && !aux.complained()){
+            if(aux.getWaitTime() > 50 && !aux.complained()){
                 aux.complain();
                 openedComplaints++;
             }
