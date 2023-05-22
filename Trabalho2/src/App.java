@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(500000);
+        emergencyRoom(500);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -84,7 +84,7 @@ public class App {
 
             //Increase Working Personnel
             int wRoomComplaints = wRoom.openedComplaints();
-            if(wRoomComplaints >= 10){
+            if(wRoomComplaints > 10){
                 for(int j = 0; j < wRoomComplaints/10; j++){
                     evalRooms.add(new Evaluation());
                     System.out.println("Adicionado eval no round: "+i);
@@ -92,7 +92,7 @@ public class App {
                 wRoom.setOpenComplaints(wRoomComplaints%10);
             }
             int pQueueComplaints = pQueue.openedComplaints();
-            if(pQueueComplaints >= 10){
+            if(pQueueComplaints > 10){
                 for(int j = 0; j < pQueueComplaints/10; j++){
                     treatRooms.add(new Treatment());
                     System.out.println("Adicionado treatment no round: "+i);
