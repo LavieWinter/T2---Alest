@@ -23,10 +23,10 @@ public class App {
             if(chance >= 0.5){
                 if(!wRoom.enterRoom()){
                     lostPatients++;
-                    System.out.println("lostPatients: "+lostPatients);
+                    // System.out.println("lostPatients: "+lostPatients);
                 };
             }
-            System.out.println("round: "+i+" tam: "+wRoom.size());
+            // System.out.println("round: "+i+" tam: "+wRoom.size());
             
             //Patient Might be Called for Evaluation
             for(int j = 0; j < evalRooms.size(); j++){
@@ -87,7 +87,7 @@ public class App {
             if(wRoomComplaints > 10){
                 for(int j = 0; j < wRoomComplaints/10; j++){
                     evalRooms.add(new Evaluation());
-                    System.out.println("Adicionado eval no round: "+i);
+                    // System.out.println("Adicionado eval no round: "+i);
                 }
                 wRoom.setOpenComplaints(wRoomComplaints%10);
             }
@@ -95,7 +95,7 @@ public class App {
             if(pQueueComplaints > 10){
                 for(int j = 0; j < pQueueComplaints/10; j++){
                     treatRooms.add(new Treatment());
-                    System.out.println("Adicionado treatment no round: "+i);
+                    // System.out.println("Adicionado treatment no round: "+i);
                 }
                 pQueue.setOpenComplaints(pQueueComplaints%10);
             }

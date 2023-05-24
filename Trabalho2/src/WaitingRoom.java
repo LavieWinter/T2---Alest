@@ -65,9 +65,9 @@ public class WaitingRoom {
         return totalTime/passedBy;
     }
 
-    public void print(){
-        for(int i = 0; i < queue.size(); i++){
-            System.out.println(i + ": " + queue.get(i).getWaitTime() + ", " + queue.get(i).complained());
-        }
-    }
+    // public void print(){
+        // for(int i = 0; i < queue.size(); i++){
+            // System.out.println(i + ": " + queue.get(i).getWaitTime() + ", " + queue.get(i).complained());
+        // }
+    // }
 }
