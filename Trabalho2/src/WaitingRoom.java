@@ -17,7 +17,7 @@ public class WaitingRoom {
             passedBy++;
             return true;
         } catch (Exception e) {
-            System.out.println("WaitingRoom.enterRoom(): " + e.getMessage());
+            // System.out.println("WaitingRoom.enterRoom(): " + e.getMessage());
             return false;
         }
     }
