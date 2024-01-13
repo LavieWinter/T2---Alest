@@ -12,6 +12,7 @@ public class Treatment {
     public void seePatient(Patient patient) {
         working = true;
         roundsLeft = (int)(Math.random()*4)+2;
+        // System.out.println("new treat rounds left: "+roundsLeft);
         this.patient = patient;
     }
 

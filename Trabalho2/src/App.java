@@ -1,6 +1,6 @@
 public class App {
     public static void main(String[] args) {
-        emergencyRoom(10000);
+        emergencyRoom(500);
     }
 
     private static void emergencyRoom(int rounds) {
@@ -26,7 +26,7 @@ public class App {
                     // System.out.println("lostPatients: "+lostPatients);
                 };
             }
-            // System.out.println("round: "+i+" tam: "+wRoom.size());
+            System.out.println("round: "+i+" tam: "+wRoom.size());
             
             //Patient Might be Called for Evaluation
             for(int j = 0; j < evalRooms.size(); j++){
